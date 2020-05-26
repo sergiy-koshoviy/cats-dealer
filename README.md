@@ -32,3 +32,5 @@ You know, Trainee not always writes a good code. You probably agree if I say tha
 
 ## Be strong and good luck!
 
+## KSM Solution points:
+- Changed names of essences - it has to be maximum similar with business views.
