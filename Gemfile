@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'puma'
 gem 'rest-client'
 
+gem 'jquery-rails'
 gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sass-rails', '~> 5.0'

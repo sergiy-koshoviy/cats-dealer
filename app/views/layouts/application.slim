@@ -8,4 +8,6 @@ html lang="en"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = yield
+    .row.pt-50.text-center
+      .col-md-8.col-md-offset-2
+        = yield
