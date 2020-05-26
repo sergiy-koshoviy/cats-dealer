@@ -1,0 +1,23 @@
+- if @cats_list.size > 0
+  p
+    | Best price for your location
+    = @cats_list.sort_by { |list| list[:price] }.first['price']
+
+  table.table.table-striped
+    thead
+    tr
+      th Type
+      th Price
+      th Location
+      th Image
+
+    tbody
+    - @cats_list.each do |cat|
+        tr
+          td= cat['name']
+          td= cat['price']
+          td= cat['location']
+          td= image_tag(cat['image'], width: '150px')
+- else
+  p
+    | Sorry, no cats for your location

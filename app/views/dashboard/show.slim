@@ -1,0 +1,13 @@
+.row
+  .col-md-2.col-md-offset-5
+    = form_tag(cats_path, method: 'get', class: 'form-horizontal center')
+        p
+          | Select cat type:
+          br
+          = select_tag('cats_type', options_for_select(%w(Bengal Abyssin Persian)))
+        p
+          | Select your location:
+          br
+          = select_tag('user_location', options_for_select(%w(Lviv Kiev Odessa)))
+        div
+          = submit_tag 'Send request', class: 'btn btn-default'

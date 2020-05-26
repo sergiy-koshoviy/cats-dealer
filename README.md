@@ -34,3 +34,4 @@ You know, Trainee not always writes a good code. You probably agree if I say tha
 
 ## KSM Solution points:
 - Changed names of essences - it has to be maximum similar with business views.
+- Switched to SLIM and deleted useless things - I like clean code ;)
