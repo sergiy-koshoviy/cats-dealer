@@ -5,11 +5,11 @@
   .col-md-6.col-md-offset-3
     .row
       .col-md-6
-        = label 'cats_type', t('form.lable_cat_breed')
-        = select_tag 'cats_type', options_for_select(%w(Bengal Abyssin Persian))
+        = label 'cats_breed', t('form.lable_cat_breed')
+        = select_tag 'cats_breed', options_for_select(%w(Bengal Abyssin Persian))
       .col-md-6
-        = label 'user_location', t('form.lable_cat_location')
-        = select_tag 'user_location', options_for_select(%w(Lviv Kiev Odessa))
+        = label 'location', t('form.lable_cat_location')
+        = select_tag 'location', options_for_select(%w(Lviv Kiev Odessa))
     .row.pt-50
       .col-md-12
         button#search_cats.btn.btn-success= t('form.submit')

@@ -12,4 +12,5 @@ en:
       location: Location
       image: Image
   no_result: Sorry, no cats for your location ;(
+  something_wrong: 'Ooooops'
 

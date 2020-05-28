@@ -2,26 +2,40 @@ class CatsController < ApplicationController
   layout false
 
   def index
-    response = RestClient.get('https://nh7b1g9g23.execute-api.us-west-2.amazonaws.com/dev/cats/json')
-    result = JSON.parse(response.body)
-
-    cats = result.select do |list|
-      list['location'] == params[:user_location] && list['name'] == params[:cats_type]
-    end
-    lower_price = cats.sort_by { |list| list[:price] }.first['price'] if cats.present?
+    search_cats
 
     respond_to do |format|
       format.json do
-        if cats.present?
-          render json: {
-            html_data: render_to_string(partial: 'cats/cats', locals: {cats: cats, lower_price: lower_price})
-          }
+        if search_cats.ok?
+          render json: {html_data: search_response}
         else
-          render json: {
-            html_data: I18n.t('no_result')
-          }
+          render json: {html_data: I18n.t('something_wrong')}
         end
       end
     end
+  end
+
+  private
+
+  def search_cats
+    @search_cats ||= ::CatsService.search(cats_params)
+  end
+
+  def cats
+    search_cats.result[:cats]
+  end
+
+  def lower_price
+    search_cats.result[:lower_price]
+  end
+
+  def cats_params
+    params.require(:cats).permit(:cats_breed, :location)
+  end
+
+  def search_response
+    return I18n.t('no_result') if cats.blank?
+
+    render_to_string(partial: 'cats/cats', locals: {cats: cats, lower_price: lower_price})
   end
 end
