@@ -37,3 +37,4 @@ You know, Trainee not always writes a good code. You probably agree if I say tha
 - Switched to SLIM and deleted useless things - I like clean code ;)
 - After cleaning we can start to impovements. In general customers like to have nice UI, so let's start.
 - Our customer said: "App looks good, but why we have so little results?". We need to add more stores, but before, we have to extract a logic from controller and cover it with tests, because we it will be inconvenient to extend this logic.
+- Finally we can expand our functionality.

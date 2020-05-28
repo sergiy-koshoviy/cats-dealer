@@ -1,5 +1,5 @@
 tr
-  td= cat['name']
-  td= cat['price']
-  td= cat['location']
-  td= image_tag cat['image'], width: '150px'
+  td= cat[:breed]
+  td= cat[:price]
+  td= cat[:location]
+  td= image_tag cat[:image], width: '150px'

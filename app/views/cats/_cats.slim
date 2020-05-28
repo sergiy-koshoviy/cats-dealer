@@ -1,10 +1,10 @@
 p.bold
-  = t('table.summary', price: lower_price)
+  = t('table.summary', price: lower_price, location: location)
 
 table.table.table-striped.table-bordered.table-hover
   thead.thead-dark
     tr.bg-info
-      th =t('table.head.type')
+      th =t('table.head.breed')
       th =t('table.head.price')
       th =t('table.head.location')
       th =t('table.head.image')

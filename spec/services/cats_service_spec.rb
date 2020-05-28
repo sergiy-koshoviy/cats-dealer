@@ -8,19 +8,21 @@ describe CatsService, :vcr do
     let(:cats_collection) do
       [
         {
-          'name' => 'Abyssin',
-          'price' => 500,
-          'location' => 'Lviv',
-          'image' => 'https://olxua-ring02.akamaized.net/images_slandocomua/476948786_2_1000x700_abissenysh-chempion-fotografii.jpg'
+          breed: 'Abyssin',
+          price: 500,
+          location: 'Lviv',
+          image: 'https://olxua-ring02.akamaized.net/images_slandocomua/476948786_2_1000x700_abissenysh-chempion-fotografii.jpg'
         }, {
-          'name' => 'Abyssin',
-          'price' => '550',
-          'location' => 'Lviv',
-          'image' => 'https://olxua-ring10.akamaized.net/images_slandocomua/342850976_3_1000x700_abidetki-koti_rev006.jpg'
+          breed: 'Abyssin',
+          price: 550,
+          location: 'Lviv',
+          image: 'https://olxua-ring10.akamaized.net/images_slandocomua/342850976_3_1000x700_abidetki-koti_rev006.jpg'
         }
       ]
     end
     let(:selected_cats) { {cats: cats_collection, lower_price: 500} }
+
+    before { create :store }
 
     it 'returns status OK' do
       expect(search.ok?).to be true

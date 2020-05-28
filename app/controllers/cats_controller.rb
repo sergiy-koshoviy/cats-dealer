@@ -36,6 +36,9 @@ class CatsController < ApplicationController
   def search_response
     return I18n.t('no_result') if cats.blank?
 
-    render_to_string(partial: 'cats/cats', locals: {cats: cats, lower_price: lower_price})
+    render_to_string(
+      partial: 'cats/cats',
+      locals: {cats: cats, lower_price: lower_price, location: cats_params[:location]}
+    )
   end
 end

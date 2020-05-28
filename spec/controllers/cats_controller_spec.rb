@@ -55,10 +55,10 @@ describe CatsController do
       let(:permitted_params) { ActionController::Parameters.new(params[:cats]).permit! }
       let(:cats_collection) do
         [
-          {'name' => 'missing', 'location' => 'missing', 'price' => '100', 'image' => 'image.jpg'}
+          {breed: 'missing', location: 'missing', price: 100, image: 'image.jpg'}
         ]
       end
-      let(:searched_cats) { {cats: cats_collection, lower_price: '100'} }
+      let(:searched_cats) { {cats: cats_collection, lower_price: 100} }
       let(:cats_service_obj) { double('CatsService', result: searched_cats, ok?: true) }
 
       before do

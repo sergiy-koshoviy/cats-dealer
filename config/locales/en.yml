@@ -5,9 +5,9 @@ en:
     submit: Catch a cat
   start_msg: You didn't catch the best cat for you yet ;(
   table:
-    summary: "Best price for your location %{price}"
+    summary: "Best price for %{location} - %{price}"
     head:
-      type: Type
+      breed: Breed
       price: Price
       location: Location
       image: Image

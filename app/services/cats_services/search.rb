@@ -1,9 +1,6 @@
-# frozen_string_literal: true
-
 module CatsServices
   class Search < CatsService
     attr_reader :cats_breed, :location
-    CATS_COLLECTION_URL = 'https://nh7b1g9g23.execute-api.us-west-2.amazonaws.com/dev/cats/json'
 
     def initialize(params)
       super
@@ -24,18 +21,19 @@ module CatsServices
     private
 
     def fetch_data_from_external_api
-      response  = RestClient.get(CATS_COLLECTION_URL)
-      @response = JSON.parse(response.body)
+      @response ||= ::StoresAdapter.fetch
     end
 
     def select_cats
       @selected_cats = @response.select do |list|
-        list['location'] == location && list['name'] == cats_breed
+        list[:location] == location && list[:breed] == cats_breed
       end
+
+      @selected_cats.sort_by! { |cat| cat[:price] }
     end
 
     def find_lower_price
-      @lower_price = @selected_cats.min_by { |list| list[:price] }['price'] if @selected_cats.present?
+      @lower_price = @selected_cats.first[:price] if @selected_cats.present?
     end
   end
 end
