@@ -1,0 +1,5 @@
+.row
+  .col-md-6
+    = select_tag 'cats_breed', options_for_select(breeds, params[:breed]), include_blank: t('form.placeholder_cat_breed')
+  .col-md-6
+    = select_tag 'location', options_for_select(locations), include_blank: t('form.placeholder_cat_location')

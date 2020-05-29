@@ -1,9 +1,9 @@
 en:
   form:
-    lable_cat_breed: Select cat breed
-    lable_cat_location: Select your location
-    submit: Catch a cat
-  start_msg: You didn't catch the best cat for you yet ;(
+    placeholder_cat_breed: Select cat breed
+    placeholder_cat_location: Select your location
+  start_msg: "Let's catch the best cat for you!</br> Please select breed and location."
+  select_location: Great, next step - select location.
   table:
     summary: "Best price for %{location} - %{price}"
     head:

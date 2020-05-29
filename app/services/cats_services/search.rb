@@ -11,7 +11,7 @@ module CatsServices
     end
 
     def call
-      fetch_data_from_external_api
+      fetch_cats
       select_cats
       find_lower_price
 
@@ -20,20 +20,20 @@ module CatsServices
 
     private
 
-    def fetch_data_from_external_api
-      @response ||= ::StoresAdapter.fetch
+    def fetch_cats
+      @cats = CatsService.all
     end
 
     def select_cats
-      @selected_cats = @response.select do |list|
-        list[:location] == location && list[:breed] == cats_breed
+      @selected_cats = @cats.select do |list|
+        list['location'] == location && list['breed'] == cats_breed
       end
 
-      @selected_cats.sort_by! { |cat| cat[:price] }
+      @selected_cats.sort_by! { |cat| cat['price'] }
     end
 
     def find_lower_price
-      @lower_price = @selected_cats.first[:price] if @selected_cats.present?
+      @lower_price = @selected_cats.first['price'] if @selected_cats.present?
     end
   end
 end

@@ -3,4 +3,8 @@ class Store < ApplicationRecord
   serialize :root_keys, Array
 
   enum format_response: {json: 1, xml: 2}
+
+  def uid
+    "#{id}-#{name.parameterize}"
+  end
 end

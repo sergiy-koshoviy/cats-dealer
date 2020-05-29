@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.1.1'
+gem 'redis'
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
 gem 'sqlite3'
 
 gem 'puma'
@@ -23,6 +26,7 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'fakeredis', require: 'fakeredis/rspec'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'vcr'
   gem 'webmock'

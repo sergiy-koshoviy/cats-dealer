@@ -7,9 +7,12 @@ class CatsController < ApplicationController
     respond_to do |format|
       format.json do
         if search_cats.ok?
-          render json: {html_data: search_response}
+          render json: {
+            html_data: search_response,
+            message: t('table.summary', price: lower_price, location: cats_params[:location])
+          }
         else
-          render json: {html_data: I18n.t('something_wrong')}
+          render json: {html_data: '', message: t('something_wrong')}
         end
       end
     end
@@ -36,9 +39,6 @@ class CatsController < ApplicationController
   def search_response
     return I18n.t('no_result') if cats.blank?
 
-    render_to_string(
-      partial: 'cats/cats',
-      locals: {cats: cats, lower_price: lower_price, location: cats_params[:location]}
-    )
+    render_to_string(partial: 'cats/cats', locals: {cats: cats})
   end
 end
